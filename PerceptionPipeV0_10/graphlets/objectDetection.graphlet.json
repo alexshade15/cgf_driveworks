@@ -1,0 +1,44 @@
+{
+    "name": "objectDetectionGraphlet",
+    "inputPorts": {
+        "INIMGGPU": {
+            "type": "dwImageHandle_t",
+            "bindingRequired": true
+        }
+    },
+    "outputPorts": {
+        "BOX_ARR": {
+            "type": "YoloScoreRectArray",
+            "bindingRequired": true
+        },
+        "BOX_NUM": {
+            "type": "uint32_t"
+        }
+    },
+    "parameters": {},
+    "subcomponents": {
+        "detectAndTrack": {
+            "componentType": "../nodes/detectAndTrack.node.json"
+        }
+    },
+    "connections": [
+        {
+            "src": "INIMGGPU",
+            "dests": {
+                "detectAndTrack.IN_IMG": {}
+            }
+        },
+        {
+            "src": "detectAndTrack.BOX_ARR",
+            "dests": {
+                "BOX_ARR": {}
+            }
+        },
+        {
+            "src": "detectAndTrack.BOX_NUM",
+            "dests": {
+                "BOX_NUM": {}
+            }
+        }
+    ]
+}

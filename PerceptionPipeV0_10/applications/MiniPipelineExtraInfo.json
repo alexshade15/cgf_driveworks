@@ -1,0 +1,12 @@
+{
+    "Map_ini": {
+        "enabled": "false",
+        "useAbsolutePath": "false",
+        "useMapTracker": "false"
+    },
+    "rigFileName": "rig.json",
+    "rigOutputFileName": "rigout.json",
+    "calibrationOutputFileName": "out_calibration.json",
+    "masterCameraIndex": "0",
+    "cameraEnabled": "true, true, true, true, true, true, true, true"
+}

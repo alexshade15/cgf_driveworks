@@ -1,0 +1,10 @@
+{
+    "subcomponents": {
+        "dw::framework::detectAndTrack": {
+            "position": [
+                -800.0,
+                0.0
+            ]
+        }
+    }
+}

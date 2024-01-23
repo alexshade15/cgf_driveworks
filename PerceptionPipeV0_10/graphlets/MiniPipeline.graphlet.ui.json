@@ -1,0 +1,27 @@
+{
+    "subcomponents": {
+        "camera0": {
+            "position": [
+                -800.0,
+                600.0
+            ]
+        },
+        "dw::framework::detectAndTrack": {
+            "position": [
+                -500.0,
+                650.0
+            ]
+        },
+        "visualization": {
+            "position": [
+                250.0,
+                300.0
+            ],
+            "inputPorts": {
+                "IMAGE": {
+                    "expansion_state": "open"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+﻿Steps to create CGF application are as follows:
+
+1) Tool "dw_graph_ui" used to create "nodes", "graphlets", "app" .json files
+
+2) Tool "nodestub" used to creat c++ stub files from json files:
+/usr/local/driveworks-5.14/tools/nodestub/nodestub.py \
+ <NODE_NAME>.node.json \
+ dw::framework::ExceptionSafeProcessNode \
+ --output-path <PATH>/src
+
+3) Imodify "*_impl.cpp" and "*_impl.hpp" files as per node processing required
+
+4) Compile the nodes as share lib .so file with cmake for required platform
+    
+    ###### COMPILE
+    cmake \
+    -B /home/perception/build-x86-linux-gnu \
+    -S /home/perception/src
+    cd /home/perception/build-x86-linux-gnu
+
+    ###### CROSS COMPILE
+    cmake \
+    -B /home/perception/build_aarch64/ \
+    -DCMAKE_TOOLCHAIN_FILE=/usr/local/driveworks/samples/cmake/Toolchain-V5L.cmake \
+    -DVIBRANTE_PDK=/drive/drive-linux \
+    -S /usr/local/driveworks-5.14/samples
+
+    make -j
+
+5) Verify json with node descriptor tool
+    /usr/local/driveworks-5.14/tools/nodedescriptor/nodedescriptor /home/perception/build_aarch64/src/my_minipipeline/libminipipeline_nodes.so "*"
+
+6) Generate yaml schedule
+
+    /usr/local/driveworks-5.14/tools/descriptionScheduleYamlGenerator/descriptionScheduleYamlGenerator.py \
+    --app /home/nvidia/PerceptionPipeV0_10/applications/PipelineV0_3.app.json \
+    --output /home/nvidia/PerceptionPipeV0_10/
+
+7) Validate app json
+    /usr/local/driveworks-5.14/tools/schema/validate_cgfdescriptors.py \
+    /home/nvidia/PerceptionPipeV0_10/applications/PipelineV0_3.app.json
+
+8) Generate stm from yaml
+/usr/local/driveworks-5.14/tools/stmcompiler \
+ -i /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.yaml \
+ -o /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.stm
+
+
+*optional*) HTML 
+/usr/local/driveworks-5.14/tools/stmvizschedule \
+-i /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.stm \
+-o /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.html
+
+9) SCP to ORIN
+-- SCP project to ORIN
+scp -r /home/nvidia/PerceptionPipeV0_10/ kineton@10.10.40.30:/home/kineton/nvidia/PerceptionPipeV0_10
+
+-- SCP libreries to ORIN
+scp /home/perception/build_aarch64/src/my_minipipeline/libminipipeline_nodes.so kineton@10.10.40.30:~
+
+10) run script as root
+
