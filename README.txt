@@ -5,8 +5,8 @@ Where to put my_minipipeline?
     Please, put my_minipipeline under /usr/local/driveworks-5.14/samples/src/
 
 Unfortunately at the moment YOLO path is hard coded. Please update it.
-You can find it in ./MyPipeline/my_minipipeline/detectAndTrackImpl.cpp, line 258.
-yolo.bin.json and yolo.bin are currently stored under ./MyPipeline/
+You can find it in ./cgf_driveworks/my_minipipeline/detectAndTrackImpl.cpp, line 258.
+yolo.bin.json and yolo.bin are currently stored under ./cgf_driveworks/
 
 How to enable PERCEPTION_ENABLED?
     Please, add to /usr/local/driveworks-5.14/samples/CMakeLists.txt
@@ -29,18 +29,23 @@ How to run?
     sudo ./run_mini_pipeline3.sh 
 
 Where is the instruction that gives me problem?
-    ./MyPipeline/my_minipipeline/detectAndTrackImpl.cpp, line 658.
+    ./cgf_driveworks/my_minipipeline/detectAndTrackImpl.cpp, line 658.
+
+How to disable object tracking, leaving only object detection running?
+    In ./cgf_driveworks/my_minipipeline/detectAndTrackImpl.cpp
+    Comment line 177
+    Uncomment lines 531 and 562-567
 
 Troubleshooting
     -Please, make sure that the .so file called is mine .so and not yours.
 
-    - ./MyPipeline/PerceptionPipeV0_10/dataset folder is a copy of /usr/local/driveworks-5.14/data/samples/minipipeline/dataset
+    - ./cgf_driveworks/PerceptionPipeV0_10/dataset folder is a copy of /usr/local/driveworks-5.14/data/samples/minipipeline/dataset
       I will remove irisSimShort_2217.bin since it is too big to be uploaded, but you can find it under /usr/local/driveworks-5.14/data/samples/minipipeline/dataset
 
 
 
 How did I generated stub, yaml and stm?
-    ./MyPipeline/PerceptionPipeV0_10/TUTORIAL.txt
+    ./cgf_driveworks/PerceptionPipeV0_10/TUTORIAL.txt
 
 
 Thank you for your help. I really appreciate it.

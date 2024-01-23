@@ -171,7 +171,12 @@ dwStatus detectAndTrackImpl::processPass() {
       DW_LOGD << "KINELOG - D&T - processPass: " << __LINE__<< Logger::State::endl;
 
       // Track objects
+      // -------------------------------------------------
+      // -------------------------------------------------
+      // TO COMMENT TO SHOW BB FROM DETECTION
       runTracker(yuvImage);
+      // -------------------------------------------------
+      // -------------------------------------------------
       DW_LOGD << "KINELOG - D&T - processPass: " << __LINE__<< Logger::State::endl;
 
       // Update output size, if num bb is greater than m_YoloScoreRectArraySize
