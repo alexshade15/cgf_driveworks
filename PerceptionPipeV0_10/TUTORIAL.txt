@@ -33,30 +33,30 @@
 6) Generate yaml schedule
 
     /usr/local/driveworks-5.14/tools/descriptionScheduleYamlGenerator/descriptionScheduleYamlGenerator.py \
-    --app /home/nvidia/PerceptionPipeV0_10/applications/PipelineV0_3.app.json \
-    --output /home/nvidia/PerceptionPipeV0_10/
+    --app /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/applications/PipelineV0_3.app.json \
+    --output /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/
 
 7) Validate app json
     /usr/local/driveworks-5.14/tools/schema/validate_cgfdescriptors.py \
-    /home/nvidia/PerceptionPipeV0_10/applications/PipelineV0_3.app.json
+    /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/applications/PipelineV0_3.app.json
 
 8) Generate stm from yaml
 /usr/local/driveworks-5.14/tools/stmcompiler \
- -i /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.yaml \
- -o /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.stm
+ -i /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.yaml \
+ -o /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.stm
 
 
 *optional*) HTML 
 /usr/local/driveworks-5.14/tools/stmvizschedule \
--i /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.stm \
--o /home/nvidia/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.html
+-i /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.stm \
+-o /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/PipelineV0_3__standardSchedule.html
 
 9) SCP to ORIN
 -- SCP project to ORIN
-scp -r /home/nvidia/PerceptionPipeV0_10/ kineton@10.10.40.30:/home/kineton/nvidia/PerceptionPipeV0_10
+scp -r /usr/local/driveworks-5.14/samples/src/sample_for_forum/cgf_driveworks/PerceptionPipeV0_10/ kineton@10.10.40.11:/home/kineton/nvidia/PerceptionPipeV0_forum
 
 -- SCP libreries to ORIN
-scp /home/perception/build_aarch64/src/my_minipipeline/libminipipeline_nodes.so kineton@10.10.40.30:~
+scp /home/perception/build_aarch64/src/sample_for_forum/cgf_driveworks/my_minipipeline/libminipipeline_nodes.so kineton@10.10.40.11:~
 
 10) run script as root
 
