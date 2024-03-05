@@ -13,80 +13,7 @@
         "imageFov0": {
             "type": "string",
             "default": "ISP_120FOV"
-        },
-        "imageWidth1": {
-            "type": "string",
-            "default": "3848"
-        },
-        "imageHeight1": {
-            "type": "string",
-            "default": "2168"
-        },
-        "imageFov1": {
-            "type": "string",
-            "default": "ISP_120FOV"
-        },
-        "imageWidth2": {
-            "type": "string",
-            "default": "3848"
-        },
-        "imageHeight2": {
-            "type": "string",
-            "default": "2168"
-        },
-        "imageFov2": {
-            "type": "string",
-            "default": "ISP_120FOV"
-        },
-        "imageWidth3": {
-            "type": "string",
-            "default": "3848"
-        },
-        "imageHeight3": {
-            "type": "string",
-            "default": "2168"
-        },
-        "imageFov3": {
-            "type": "string",
-            "default": "ISP_120FOV"
-        },
-        "imageWidth4": {
-            "type": "string",
-            "default": "3848"
-        },
-        "imageHeight4": {
-            "type": "string",
-            "default": "2168"
-        },
-        "imageFov4": {
-            "type": "string",
-            "default": "ISP_120FOV"
-        },
-        "imageWidth5": {
-            "type": "string",
-            "default": "3848"
-        },
-        "imageHeight5": {
-            "type": "string",
-            "default": "2168"
-        },
-        "imageFov5": {
-            "type": "string",
-            "default": "ISP_120FOV"
-        },
-        "imageWidth6": {
-            "type": "string",
-            "default": "3848"
-        },
-        "imageHeight6": {
-            "type": "string",
-            "default": "2168"
-        },
-        "imageFov6": {
-            "type": "string",
-            "default": "ISP_120FOV"
         }
-
     },
     "requiredSensors": "./MiniPipeline.required-sensors.json",
     "sensorMappingLookups": [
@@ -109,25 +36,6 @@
         "standardSchedule": {
             "wcet": "./MiniPipeline_wcet.yaml",
             "hyperepochs": {
-                "mainHyperepoch": {
-                    "period": 33000000,
-                    "epochs": {
-                        "mainEpoch": {
-                            "period": 33000000,
-                            "frames": 1,
-                            "passes": [
-                                [
-                                    "miniPipeline.imuSensor",
-                                    "miniPipeline.radarSensor0",
-                                    "miniPipeline.radarSensor1"
-                                ]
-                            ]
-                        }
-                    },
-                    "resources": {
-                        "machine0.CPU0": []
-                    }
-                },
                 "renderHyperepoch": {
                     "period": 33000000,
                     "epochs": {
@@ -146,12 +54,6 @@
                             "passes": [
                                 [
                                     "miniPipeline.camera0",
-                                    "miniPipeline.camera1",
-                                    "miniPipeline.camera2",
-                                    "miniPipeline.camera3",
-                                    "miniPipeline.camera4",
-                                    "miniPipeline.camera5",
-                                    "miniPipeline.camera6",
                                     "miniPipeline.detectAndTrack"
                                 ]
                             ]
@@ -205,15 +107,6 @@
             "subcomponents": [
                 "miniPipeline.camera0",
                 "miniPipeline.detectAndTrack",
-                "miniPipeline.camera1",
-                "miniPipeline.camera2",
-                "miniPipeline.camera3",
-                "miniPipeline.camera4",
-                "miniPipeline.camera5",
-                "miniPipeline.camera6",
-                "miniPipeline.radarSensor0",
-                "miniPipeline.radarSensor1",
-                "miniPipeline.imuSensor",
                 "miniPipeline.visualization"
             ]
         }
